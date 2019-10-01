@@ -1,7 +1,7 @@
 import React from 'react';// eslint-disable-line no-unused-vars
 import './App.css';
-import Display from './Display'
-import ButtonPanel from './ButtonPanel'
+import Display from './Display' // eslint-disable-line no-unused-vars
+import ButtonPanel from './ButtonPanel' // eslint-disable-line no-unused-vars
 
 const App = () => {
   const displayValue = () => {
