@@ -13,7 +13,7 @@ const ButtonPanel = () => {
 
 
   return (
-    <div>
+    <div className='buttonPanel'>
       <div>
         {buttonGroups(group1)}
       </div>
