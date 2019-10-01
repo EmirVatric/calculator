@@ -10,8 +10,7 @@ class App extends React.Component {
     this.state = {
       total: null,
       next: null,
-      operation: null,
-      display: '0'
+      operation: null
     }
   }
 
@@ -21,7 +20,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" >
-        <Display result={this.state.display} />
+        <Display result={this.state.next || this.state.total || '0'} />
         <ButtonPanel clickHandler={this.clickHandler} operation={this.state.operation === 'null' ? '' : this.state.operation} />
       </div>
     );
