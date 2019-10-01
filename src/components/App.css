@@ -1,0 +1,41 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.display {
+  display: flex;
+  justify-content: flex-end;
+  background: gray;
+  height: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 60px;
+  align-items: center;
+  padding-right: 5px;
+}
+
+.buttonPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonPanel>div {
+  width: 100%;
+}
+
+.button {
+  width: 25%;
+  color: black;
+  text-align: center;
+  height: 90px;
+  background: orange;
+  border: 1px solid gray;
+  font-size: 25px;
+}
+
+.button:focus {
+  outline: none;
+}
