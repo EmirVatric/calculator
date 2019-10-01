@@ -1,7 +1,7 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
 import Button from './Button' // eslint-disable-line no-unused-vars
 
-const ButtonPanel = () => {
+const ButtonPanel = (props) => {
   const group1 = ['AC', '+/-', '%', '/']
   const group2 = ['7', '8', '9', 'x']
   const group3 = ['4', '5', '6', '-']
@@ -9,8 +9,11 @@ const ButtonPanel = () => {
   const group5 = ['0', '.', '=']
 
   const buttonGroups = (group) => group.map((button) =>
-    (button === '0' ? <Button key={button} name={button} width={true} />
-      : (button === group[group.length - 1] ? <Button key={button} name={button} color='orange' width={false} /> : <Button key={button} name={button} width={false} />))
+    (button === '0' ? <Button key={button} name={button} width={true} clickHandler={props.clickHandler} />
+      : (button === group[group.length - 1] ? (props.operation === button
+        ? <Button key={button} name={button} color='white' width={false} clickHandler={props.clickHandler} />
+        : <Button key={button} name={button} color='orange' width={false} clickHandler={props.clickHandler} />)
+        : <Button key={button} name={button} width={false} clickHandler={props.clickHandler} />))
   )
 
 
