@@ -1,5 +1,4 @@
 import React from 'react'; // eslint-disable-line no-unused-vars
-import './ButtonPanel.css'
 import Button from './Button' // eslint-disable-line no-unused-vars
 
 const ButtonPanel = () => {
