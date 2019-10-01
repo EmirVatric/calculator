@@ -9,7 +9,6 @@ const operate = (numberOne, numberTwo, operator) => {
     let numOne = numberOne === null ? Big(0) : Big(numberOne)
     let numTwo = numberTwo === null ? Big(0) : Big(numberTwo)
 
-
     switch (operator) {
       case "+":
         return numOne.plus(numTwo).toString();
@@ -28,11 +27,8 @@ const operate = (numberOne, numberTwo, operator) => {
 
       default:
         return 'error'
-
     }
   }
-
-
 }
 
 export default operate;
