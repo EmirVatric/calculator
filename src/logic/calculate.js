@@ -27,7 +27,7 @@ const calculate = (dataObj, buttonName) => {
       operation: null
     }
   } else if (buttonName === '+/-') {
-    if (dataObj.total !== null) {
+    if (dataObj.total !== null && dataObj === null) {
       return {
         total: (Number(dataObj.total) * -1).toString()
       }
@@ -62,7 +62,7 @@ const calculate = (dataObj, buttonName) => {
       }
     } else {
       if (dataObj.operation === null) {
-        if (dataObj.total.slice(-1) === '.') {
+        if (dataObj.total !== null && dataObj.total.slice(-1) === '.') {
           return {
             total: dataObj.total + '0',
             operation: buttonName
@@ -72,7 +72,12 @@ const calculate = (dataObj, buttonName) => {
             operation: buttonName
           }
         }
-      } else {
+      } else if (dataObj.operation !== null && dataObj.next === null) {
+        return {
+          operation: buttonName
+        }
+      }
+      else {
         return {
           total: operate(dataObj.total, dataObj.next, dataObj.operation),
           next: null,

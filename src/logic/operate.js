@@ -27,7 +27,11 @@ const operate = (numberOne, numberTwo, operator) => {
         }
 
       case "%":
-        return (numOne / 100) * numTwo
+        if (numberTwo === null) {
+          return numOne / 100
+        } else {
+          return numTwo / 100
+        }
 
       default:
         return 'error'
