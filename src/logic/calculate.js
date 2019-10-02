@@ -4,9 +4,18 @@ const calculate = (dataObj, buttonName) => {
   const regex = new RegExp('^[0-9]|[.]+$');
 
   if (buttonName === '.') {
-    if (dataObj.total !== null && dataObj.total.slice(-1) === '.') {
+    const check = (obj) => {
+      for (let i in obj) {
+        if (obj[i] === '.') {
+          return true
+        }
+      }
+      return false
+    }
+
+    if (dataObj.total !== null && check(dataObj.total)) {
       return
-    } else if (dataObj.next !== null && dataObj.next.slice(-1) === '.') {
+    } else if (dataObj.next !== null && check(dataObj.next)) {
       return
     }
   }

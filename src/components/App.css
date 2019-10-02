@@ -1,8 +1,17 @@
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #303030;
+
+}
+
 .App {
   display: flex;
   flex-direction: column;
   width: 700px;
-  margin: 0 auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .display {
@@ -41,5 +50,5 @@
 }
 
 .button:hover {
-  background: rgb(187, 185, 185)  !important;
+  background: rgb(187, 185, 185) !important;
 }
