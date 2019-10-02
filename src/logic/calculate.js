@@ -3,6 +3,23 @@ import operate from './operate'
 const calculate = (dataObj, buttonName) => {
   const regex = new RegExp('^[0-9]|[.]+$');
 
+  if (buttonName === '.') {
+    const check = (obj) => {
+      for (let i in obj) {
+        if (obj[i] === '.') {
+          return true
+        }
+      }
+      return false
+    }
+
+    if (dataObj.total !== null && check(dataObj.total)) {
+      return
+    } else if (dataObj.next !== null && check(dataObj.next)) {
+      return
+    }
+  }
+
   if (buttonName === 'AC') {
     return {
       total: null,
@@ -10,7 +27,7 @@ const calculate = (dataObj, buttonName) => {
       operation: null
     }
   } else if (buttonName === '+/-') {
-    if (dataObj.total !== null) {
+    if (dataObj.total !== null && dataObj.next === null) {
       return {
         total: (Number(dataObj.total) * -1).toString()
       }
@@ -45,10 +62,22 @@ const calculate = (dataObj, buttonName) => {
       }
     } else {
       if (dataObj.operation === null) {
+        if (dataObj.total !== null && dataObj.total.slice(-1) === '.') {
+          return {
+            total: dataObj.total + '0',
+            operation: buttonName
+          }
+        } else {
+          return {
+            operation: buttonName
+          }
+        }
+      } else if (dataObj.operation !== null && dataObj.next === null) {
         return {
           operation: buttonName
         }
-      } else {
+      }
+      else {
         return {
           total: operate(dataObj.total, dataObj.next, dataObj.operation),
           next: null,

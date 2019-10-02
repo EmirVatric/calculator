@@ -20,10 +20,18 @@ const operate = (numberOne, numberTwo, operator) => {
         return numOne.times(numTwo).toString();
 
       case "/":
-        return numOne.div(numTwo).toString();
+        if (numberTwo === '0' || numberTwo === null) {
+          return '0'
+        } else {
+          return numOne.div(numTwo).toString();
+        }
 
       case "%":
-        return (numOne / 100) * numTwo
+        if (numberTwo === null) {
+          return numOne / 100
+        } else {
+          return numTwo / 100
+        }
 
       default:
         return 'error'
