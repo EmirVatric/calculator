@@ -3,6 +3,14 @@ import operate from './operate'
 const calculate = (dataObj, buttonName) => {
   const regex = new RegExp('^[0-9]|[.]+$');
 
+  if (buttonName === '.') {
+    if (dataObj.total !== null && dataObj.total.slice(-1) === '.') {
+      return
+    } else if (dataObj.next !== null && dataObj.next.slice(-1) === '.') {
+      return
+    }
+  }
+
   if (buttonName === 'AC') {
     return {
       total: null,
@@ -45,8 +53,15 @@ const calculate = (dataObj, buttonName) => {
       }
     } else {
       if (dataObj.operation === null) {
-        return {
-          operation: buttonName
+        if (dataObj.total.slice(-1) === '.') {
+          return {
+            total: dataObj.total + '0',
+            operation: buttonName
+          }
+        } else {
+          return {
+            operation: buttonName
+          }
         }
       } else {
         return {
