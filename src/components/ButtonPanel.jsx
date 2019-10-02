@@ -9,11 +9,12 @@ const ButtonPanel = (props) => {
   const group5 = ['0', '.', '=']
 
   const buttonGroups = (group) => group.map((button) =>
-    (button === '0' ? <Button key={button} name={button} width={true} clickHandler={props.clickHandler} />
+    (button === '0' ? <Button key={button} name={button} color='lightGray' width={true} clickHandler={props.clickHandler} />
       : (button === group[group.length - 1] ? (props.operation === button
-        ? <Button key={button} name={button} color='white' width={false} clickHandler={props.clickHandler} />
-        : <Button key={button} name={button} color='orange' width={false} clickHandler={props.clickHandler} />)
-        : <Button key={button} name={button} width={false} clickHandler={props.clickHandler} />))
+        ? <Button key={button} name={button} width={false} clickHandler={props.clickHandler} />
+        : <Button key={button} name={button} width={false} clickHandler={props.clickHandler} />)
+        : <Button key={button} name={button} color='lightGray' width={false} clickHandler={props.clickHandler} />))
+
   )
 
 
