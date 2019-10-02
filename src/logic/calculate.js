@@ -27,7 +27,7 @@ const calculate = (dataObj, buttonName) => {
       operation: null
     }
   } else if (buttonName === '+/-') {
-    if (dataObj.total !== null && dataObj === null) {
+    if (dataObj.total !== null && dataObj.next === null) {
       return {
         total: (Number(dataObj.total) * -1).toString()
       }
